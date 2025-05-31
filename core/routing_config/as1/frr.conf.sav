@@ -1,0 +1,19 @@
+frr version 8.4_git
+frr defaults traditional
+hostname as1
+log syslog informational
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+router bgp 65001
+ bgp router-id 10.1.0.2
+ neighbor 10.1.0.3 remote-as 65002
+ !
+ address-family ipv4 unicast
+  network 10.1.0.0/24
+  network 10.1.1.0/24
+  neighbor 10.1.0.3 activate
+ exit-address-family
+!
+line vty
+!
