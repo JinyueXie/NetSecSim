@@ -111,3 +111,27 @@ cd ~/NetSecSim
 source venv/bin/activate
 ./launch-netsec-enhanced.sh
 ```
+
+
+
+## 🖥️ Enhanced UI Dashboard (PyQt6)
+
+NetSecSim now includes a fully interactive PyQt6-based professional dashboard for attack simulation and topology visualization.
+![Dashboard] ![image](https://github.com/user-attachments/assets/e9a80cc7-fc54-452a-89af-da2404b0a963)
+![image](https://github.com/user-attachments/assets/991b11d9-987d-4a48-802a-4f52841a9ab4)
+ 
+
+## ✨ What's New in the Enhanced Dashboard
+
+- ✅ Visual topology of 5 AS nodes (AS100–AS500)
+- ✅ Prefix Hijack & Route Poisoning simulation
+- ✅ Real-time status indicators and alerts
+- ✅ Animated path attacks (dashed red lines)
+- ✅ Clean and Apple-inspired GUI (PyQt6)
+- ✅ Attack log viewer and auto-scroll
+- ✅ Easy container status monitoring
+
+![GitHub last commit](https://img.shields.io/github/last-commit/JinyueXie/NetSecSim)
+![Issues](https://img.shields.io/github/issues/JinyueXie/NetSecSim)
+![License](https://img.shields.io/github/license/JinyueXie/NetSecSim)
+
