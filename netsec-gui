@@ -1,0 +1,33 @@
+#!/bin/bash
+# Quick NetSecSim GUI launcher
+
+case "$1" in
+    "start"|"launch"|"")
+        cd ~/NetSecSim && source venv/bin/activate && python3 dashboard/netsec_dashboard_enhanced.py
+        ;;
+    "test")
+        echo "🧪 Testing NetSecSim Dashboard..."
+        cd ~/NetSecSim && source venv/bin/activate && python3 -c "
+import sys
+try:
+    from PyQt6.QtWidgets import QApplication
+    from dashboard.netsec_dashboard_enhanced import NetSecSimDashboard
+    print('✅ All dependencies working!')
+    print('✅ Dashboard imports successful!')
+    print('🎮 Ready to launch!')
+except Exception as e:
+    print(f'❌ Error: {e}')
+    sys.exit(1)
+"
+        ;;
+    "deps")
+        echo "📦 Installing dependencies..."
+        cd ~/NetSecSim && source venv/bin/activate && pip install --upgrade PyQt6 PyQt6-Charts matplotlib networkx numpy pandas
+        ;;
+    *)
+        echo "Usage: netsec-gui [start|test|deps]"
+        echo "  start - Launch the dashboard (default)"
+        echo "  test  - Test dependencies and imports"
+        echo "  deps  - Install/update dependencies"
+        ;;
+esac

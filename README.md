@@ -90,3 +90,24 @@ docker exec as1 ping 10.1.0.3
 docker exec as2 traceroute 10.1.0.2
 ```
 
+---
+
+## 🖥️ Enhanced Dashboard UI (v2.0)
+
+A modern PyQt6-powered visual interface is now included to simulate attacks and observe real-time network behavior.
+
+### Features
+
+- 📊 Live visualization of AS-level network topology
+- 🟢 Status indicators for each AS (online / attack)
+- ⚔️ One-click Prefix Hijack and Route Poisoning simulation
+- 📜 Attack log viewer
+- 🖼️ Custom icon and Ubuntu launcher integration
+
+### How to Launch
+
+```bash
+cd ~/NetSecSim
+source venv/bin/activate
+./launch-netsec-enhanced.sh
+```

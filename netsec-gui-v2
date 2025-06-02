@@ -1,0 +1,33 @@
+#!/bin/bash
+# NetSecSim v2.0 GUI Control
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+case "${1:-start}" in
+   start)
+       if pgrep -f "netsec_dashboard_v2" > /dev/null; then
+           echo "✅ NetSecSim v2.0 is already running"
+       else
+           echo "🚀 Starting NetSecSim v2.0..."
+           cd "$SCRIPT_DIR"
+           nohup ./launch-netsec-v2.sh > /dev/null 2>&1 &
+           sleep 2
+           echo "✅ Dashboard started"
+       fi
+       ;;
+   stop)
+       echo "🛑 Stopping NetSecSim v2.0..."
+       pkill -f "netsec_dashboard_v2"
+       echo "✅ Dashboard stopped"
+       ;;
+   status)
+       if pgrep -f "netsec_dashboard_v2" > /dev/null; then
+           echo "✅ NetSecSim v2.0 is running"
+       else
+           echo "❌ NetSecSim v2.0 is not running"
+       fi
+       ;;
+   *)
+       echo "Usage: $0 {start|stop|status}"
+       ;;
+esac

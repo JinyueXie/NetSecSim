@@ -1,0 +1,21 @@
+frr version 8.4_git
+frr defaults traditional
+hostname as500
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+ip route 172.16.0.0/16 Null0
+!
+router bgp 65500
+ bgp router-id 172.20.0.50
+ bgp log-neighbor-changes
+ no bgp ebgp-requires-policy
+ neighbor 172.20.0.30 remote-as 65300
+ neighbor 172.20.0.30 description as300
+ !
+ address-family ipv4 unicast
+  network 172.16.0.0/16
+  redistribute connected
+ exit-address-family
+exit
+!

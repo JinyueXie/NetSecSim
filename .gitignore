@@ -1,8 +1,7 @@
-*.log
+venv/
 __pycache__/
 *.pyc
-*.swp
-.vscode/
-.DS_Store
+*.log
+*.DS_Store
 .env
-*.bak
+*.swp

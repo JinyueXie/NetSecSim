@@ -1,0 +1,23 @@
+frr version 8.4_git
+frr defaults traditional
+hostname as200
+no ipv6 forwarding
+service integrated-vtysh-config
+!
+ip route 200.0.0.0/16 Null0
+!
+router bgp 65200
+ bgp router-id 172.20.0.20
+ bgp log-neighbor-changes
+ neighbor 172.20.0.10 remote-as 65100
+ neighbor 172.20.0.10 description as100
+ neighbor 172.20.0.30 remote-as 65300
+ neighbor 172.20.0.30 description as300
+ neighbor 172.20.0.40 remote-as 65400
+ neighbor 172.20.0.40 description as400
+ !
+ address-family ipv4 unicast
+  network 200.0.0.0/16
+ exit-address-family
+exit
+!
